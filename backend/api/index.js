@@ -11,5 +11,6 @@ const connectToDatabase = () => {
 
 export default async function handler(request, response) {
   await connectToDatabase();
+  request.url = request.url.replace(/^\/api/, '') || '/';
   return app(request, response);
 }
