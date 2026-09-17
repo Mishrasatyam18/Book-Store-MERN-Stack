@@ -18,11 +18,23 @@ app.get('/', (request, response) => {
 app.use('/books', booksRoute);
 
 export { app, mongoDBURL, mongoose };
-export default app;
+
+let connectionPromise;
+
+const connectToDatabase = () => {
+  if (!connectionPromise) {
+    connectionPromise = mongoose.connect(mongoDBURL);
+  }
+  return connectionPromise;
+};
+
+export default async function handler(request, response) {
+  await connectToDatabase();
+  return app(request, response);
+}
 
 if (!process.env.VERCEL) {
-  mongoose
-    .connect(mongoDBURL)
+  connectToDatabase()
     .then(() => {
       console.log('App connected to database');
       app.listen(PORT, () => {
