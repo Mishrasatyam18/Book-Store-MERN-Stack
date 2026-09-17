@@ -1,0 +1,47 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+	font-family: 'Trebuchet MS', 'Segoe UI', sans-serif;
+	color: #e5f6f4;
+	background: #08151d;
+	font-synthesis: none;
+	text-rendering: optimizeLegibility;
+}
+
+html,
+body,
+#root {
+	min-height: 100%;
+}
+
+body {
+	min-width: 320px;
+	margin: 0;
+	background:
+		radial-gradient(circle at 12% 18%, rgba(53, 211, 193, 0.16) 0 1px, transparent 2px),
+		radial-gradient(circle at 78% 34%, rgba(164, 226, 86, 0.13) 0 1px, transparent 2px),
+		linear-gradient(115deg, transparent 0 49.8%, rgba(64, 188, 180, 0.07) 50%, transparent 50.2%),
+		linear-gradient(25deg, transparent 0 49.8%, rgba(64, 188, 180, 0.05) 50%, transparent 50.2%),
+		#08151d;
+	background-size: 190px 190px, 260px 260px, 92px 92px, 128px 128px, auto;
+	background-attachment: fixed;
+}
+
+body::before {
+	position: fixed;
+	inset: 0;
+	z-index: -1;
+	pointer-events: none;
+	content: '';
+	background:
+		repeating-linear-gradient(90deg, transparent 0 47px, rgba(114, 224, 207, 0.025) 48px, transparent 49px),
+		repeating-linear-gradient(0deg, transparent 0 47px, rgba(114, 224, 207, 0.025) 48px, transparent 49px);
+	mask-image: linear-gradient(to bottom, black, transparent 88%);
+}
+
+button,
+a {
+	transition: color 160ms ease, background-color 160ms ease, transform 160ms ease;
+}
