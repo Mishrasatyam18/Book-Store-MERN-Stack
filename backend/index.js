@@ -18,6 +18,7 @@ app.get('/', (request, response) => {
 app.use('/books', booksRoute);
 
 export { app, mongoDBURL, mongoose };
+export default app;
 
 if (!process.env.VERCEL) {
   mongoose
